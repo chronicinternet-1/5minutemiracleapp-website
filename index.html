@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="5 Minute Miracle — Transform your mornings with a simple 5-minute routine that builds lasting positive habits.">
+  <title>5 Minute Miracle App — Transform Your Morning Routine</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-light: #818CF8;
+      --primary-dark: #3730A3;
+      --accent: #F59E0B;
+      --bg: #0F172A;
+      --bg-light: #1E293B;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --radius: 12px;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+    
+    .logo span { color: var(--accent); }
+    
+    .nav-cta {
+      background: var(--primary);
+      color: white;
+      padding: 10px 24px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.3s;
+    }
+    
+    .nav-cta:hover { background: var(--primary-dark); }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+      background: 
+        radial-gradient(ellipse at 30% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+    }
+    
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--primary);
+      color: white;
+      padding: 16px 40px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 700;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 24px rgba(79, 70, 229, 0.4);
+    }
+    
+    .hero-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(79, 70, 229, 0.5);
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background: var(--bg-light);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    
+    .hero-badge span { color: var(--accent); font-weight: 600; }
+
+    /* Features */
+    .features {
+      padding: 120px 0;
+    }
+    
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.85rem;
+      color: var(--primary-light);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 60px;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    
+    .feature-card {
+      background: var(--bg-light);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      padding: 36px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(79, 70, 229, 0.3);
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+    
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* How It Works */
+    .how-it-works {
+      padding: 120px 0;
+      background: var(--bg-light);
+    }
+    
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .step {
+      text-align: center;
+      position: relative;
+    }
+    
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    
+    .step h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    
+    .step p {
+      color: var(--text-muted);
+    }
+
+    /* Testimonial / Quote */
+    .quote-section {
+      padding: 120px 0;
+      text-align: center;
+    }
+    
+    .quote {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-style: italic;
+      max-width: 800px;
+      margin: 0 auto 24px;
+      line-height: 1.4;
+      color: var(--text);
+    }
+    
+    .quote-author {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 120px 0;
+      text-align: center;
+      background: 
+        radial-gradient(ellipse at 50% 50%, rgba(79, 70, 229, 0.2) 0%, transparent 60%);
+    }
+    
+    .cta-section h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+    
+    footer a:hover { color: var(--text); }
+
+    @media (max-width: 640px) {
+      .hero { min-height: 90vh; padding-top: 100px; }
+      .features, .how-it-works, .quote-section, .cta-section { padding: 80px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">5 Minute <span>Miracle</span></a>
+      <a href="#get-started" class="nav-cta">Coming Soon</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge">🚀 <span>Coming to iOS & Android</span></div>
+      <h1>Transform Your Life<br><span class="highlight">5 Minutes at a Time</span></h1>
+      <p>A guided morning routine app that turns tiny daily habits into extraordinary results. No willpower required.</p>
+      <a href="#get-started" class="hero-cta">⏱️ Get Early Access</a>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <p class="section-label">Why 5 Minutes?</p>
+      <h2 class="section-title">Small enough to start. Powerful enough to change everything.</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🧘</div>
+          <h3>Guided Routines</h3>
+          <p>Follow simple, science-backed 5-minute routines for gratitude, mindfulness, movement, and intention-setting.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Track Your Streak</h3>
+          <p>Watch your consistency build momentum. Visual progress tracking keeps you motivated without pressure.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Daily Intentions</h3>
+          <p>Set one clear intention each morning. Simple focus beats overwhelming to-do lists every time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>Gentle Reminders</h3>
+          <p>Smart notifications that adapt to your schedule. We nudge, never nag.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Micro-Journaling</h3>
+          <p>Three prompts. Two minutes. Capture insights that compound over weeks and months.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌅</div>
+          <h3>Evening Reflection</h3>
+          <p>Close each day with a quick reflection. What worked? What will you carry forward?</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-it-works">
+    <div class="container">
+      <p class="section-label" style="text-align:center;">How It Works</p>
+      <h2 class="section-title" style="text-align:center;">Three steps. Five minutes. Every morning.</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Wake Up & Open</h3>
+          <p>Your personalized morning routine is ready the moment you open the app. No decisions needed.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Follow the Flow</h3>
+          <p>Guided prompts walk you through gratitude, intention, and mindfulness in exactly 5 minutes.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Start Your Day</h3>
+          <p>Close the app with clarity and purpose. That's it. The miracle is in the consistency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section">
+    <div class="container">
+      <p class="quote">"We are what we repeatedly do. Excellence, then, is not an act, but a habit."</p>
+      <p class="quote-author">— Will Durant (summarizing Aristotle)</p>
+    </div>
+  </section>
+
+  <section class="cta-section" id="get-started">
+    <div class="container">
+      <h2>Ready to Start Your<br>5 Minute Miracle?</h2>
+      <p>Join the waitlist and be first to know when we launch.</p>
+      <a href="mailto:steve@chronicinternet.com?subject=5%20Minute%20Miracle%20-%20Early%20Access" class="hero-cta">✉️ Join the Waitlist</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 5 Minute Miracle App. Built by <a href="https://stevemonas.com" target="_blank">Steve Ysreal Monas</a>.</p>
+    </div>
+  </footer>
+</body>
+</html>
