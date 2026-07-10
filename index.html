@@ -690,7 +690,7 @@
         <a href="#features" class="nav-link">Features</a>
         <a href="/pricing.html" class="nav-link">Pricing</a>
         <a href="#book" class="nav-link">The Book</a>
-        <a href="#waitlist" class="nav-cta">Get Early Access</a>
+        <a href="https://app.5minutemiracleapp.com" class="nav-cta">Open the App</a>
       </nav>
     </div>
   </header>
@@ -698,14 +698,14 @@
   <!-- ─── HERO ─── -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">🚀 Coming Soon to iOS & Android</div>
+      <div class="hero-badge">✨ Live Now — iOS & Android Coming Later</div>
       <h1>Transform Your Life<br><span class="highlight">5 Minutes at a Time</span></h1>
       <p class="hero-sub">
         A guided morning routine app that turns tiny daily habits into extraordinary results.
         No willpower required. Just 5 minutes.
       </p>
       <div class="hero-ctas">
-        <a href="#waitlist" class="btn-primary">⏱️ Join the Waitlist</a>
+        <a href="https://app.5minutemiracleapp.com" class="btn-primary">⏱️ Start Free — No Card Required</a>
         <a href="#book" class="btn-secondary">📖 Read the Book First</a>
       </div>
       <div class="hero-stats">
@@ -914,27 +914,15 @@
   <!-- ─── WAITLIST ─── -->
   <section class="waitlist" id="waitlist">
     <div class="container">
-      <h2>Your 5 Minute Miracle<br>Starts Tomorrow Morning</h2>
+      <h2>Your 5 Minute Miracle<br>Starts This Morning</h2>
       <p>
-        Join the waitlist and be the first to know when the app launches.
-        Early access members get exclusive perks and a free in-app bonus.
+        The app is live. No waitlist, no "coming soon" — just open it and start your
+        first 5 minutes right now, free.
       </p>
-      <form
-        class="signup-form"
-        action="https://formspree.io/f/xpwzoeog"
-        method="POST"
-        onsubmit="handleSubmit(event)"
-      >
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email address"
-          required
-          autocomplete="email"
-        />
-        <button type="submit">Join Waitlist →</button>
-      </form>
-      <p class="signup-note">No spam, ever. We'll only email you when the app is ready. <br><a href="#">Privacy Policy</a></p>
+      <div class="signup-form">
+        <a href="https://app.5minutemiracleapp.com" class="btn-primary">Open the App →</a>
+      </div>
+      <p class="signup-note">Free to start. No credit card required.</p>
     </div>
   </section>
 
@@ -956,40 +944,6 @@
   </footer>
 
   <script>
-    // Smooth form feedback
-    function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const button = form.querySelector('button');
-      const email = form.querySelector('input[type="email"]').value;
-
-      button.textContent = 'Joining...';
-      button.disabled = true;
-
-      fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(res => {
-        if (res.ok) {
-          form.innerHTML = `
-            <div style="text-align:center; padding: 20px;">
-              <div style="font-size: 2.5rem; margin-bottom: 12px;">🎉</div>
-              <h3 style="font-size: 1.3rem; margin-bottom: 8px;">You're on the list!</h3>
-              <p style="color: var(--text-muted);">We'll reach out as soon as the app is ready. Get excited — your 5 Minute Miracle is coming.</p>
-            </div>
-          `;
-        } else {
-          // Fallback to mailto if form service fails
-          window.location.href = 'mailto:steve@5minutemiracleapp.com?subject=5%20Minute%20Miracle%20Waitlist&body=Please%20add%20me%20to%20the%20waitlist!%20My%20email%20is%3A%20' + encodeURIComponent(email);
-        }
-      })
-      .catch(() => {
-        window.location.href = 'mailto:steve@5minutemiracleapp.com?subject=5%20Minute%20Miracle%20Waitlist&body=Please%20add%20me%20to%20the%20waitlist!%20My%20email%20is%3A%20' + encodeURIComponent(email);
-      });
-    }
-
     // Reveal on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
